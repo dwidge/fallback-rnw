@@ -3,15 +3,16 @@
 // https://www.boost.org/LICENSE_1_0.txt
 
 import { Button, Text } from "@rneui/themed";
-import React, { useState } from "react";
+import { useState } from "react";
 import { View } from "react-native";
+import { printError } from "./printError.js";
 
 export const ErrorFallback = ({
   error = new Error(),
   resetError = undefined as undefined | (() => void),
-  userMessage = "Something went wrong...",
+  userMessage = "",
 }) => (
-  <View style={{ gap: 10, padding: 10 }}>
+  <View style={{ gap: 10 }}>
     <Text>{userMessage}</Text>
     <RenderErrorDetails error={error} />
     {resetError && <Button title="Try again" onPress={resetError} />}
@@ -27,7 +28,7 @@ const RenderErrorDetails = ({
   <View
     style={{ gap: 10, padding: 10, backgroundColor: "#9993", borderRadius: 10 }}
   >
-    <Text>{error.toString()}</Text>
+    <Text>{printError(error)}</Text>
     {cause?.context && (
       <>
         <Button
