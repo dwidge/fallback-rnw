@@ -1,6 +1,6 @@
 {
   "name": "@dwidge/fallback-rnw",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Fallback component with context buttons for react-native-error-boundary.",
   "repository": "github:dwidge/fallback-rnw",
   "main": "./dist/cjs/index.js",
